@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Land Registry</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel='stylesheet' type='text/css' href='home.css'>
+    <link rel='icon' type='image/icon type' href='assets/tabIcon.png'>
+</head>
+<body>
+    <script>
+        window.onload = function()
+        {
+            if(typeof web3 == 'undefined')
+            {
+                document.getElementById("metamask").innerHTML = "You need to install metamask to run this dApp";
+            }
+        }
+    </script>
+    <div class="app-container" id="metamask">
+        <div class="app-left">
+            <button class="close-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="app-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                        <g>
+                            <path d="M169.13333,131.86667v31.53333c-0.00945,3.16251 -2.57082,5.72389 -5.73333,5.73333h-154.8c-3.16251,-0.00945 -5.72389,-2.57082 -5.73333,-5.73333v-31.53333z" fill="#ffffff"></path><path d="M133.24267,77.4c2.74148,0.00572 5.31688,1.3147 6.93733,3.526l28.95333,39.474l-2.86667,2.86667h-160.53333l-2.86667,-2.86667l28.95333,-39.474c1.62046,-2.2113 4.19586,-3.52028 6.93733,-3.526z" fill="#ffffff"></path><path d="M169.13333,120.4v14.33333c-10.406,0 -10.406,5.73333 -20.78333,5.73333c-10.37733,0 -10.406,-5.73333 -20.812,-5.73333c-10.406,0 -10.37733,5.73333 -20.78333,5.73333c-10.406,0 -10.37733,-5.73333 -20.78333,-5.73333c-10.406,0 -10.37733,5.73333 -20.78333,5.73333c-10.406,0 -10.37733,-5.73333 -20.78333,-5.73333c-10.406,0 -10.37733,5.73333 -20.75467,5.73333c-10.37733,0 -10.406,-5.73333 -20.78333,-5.73333v-14.33333z" fill="#ffffff"></path><rect x="26" y="19" transform="scale(2.86667,2.86667)" width="8" height="15" fill="#ffffff"></rect><path d="M80.26667,2.86667h11.46667c3.16643,0 5.73333,2.5669 5.73333,5.73333v8.6v0h-22.93333v0v-8.6c0,-3.16643 2.5669,-5.73333 5.73333,-5.73333z" fill="#ffffff"></path><rect x="14" y="5" transform="scale(2.86667,2.86667)" width="32" height="16" rx="2" ry="0" fill="#ffffff"></rect><path d="M171.785,119.33647c-0.0258,-0.06593 -0.06593,-0.1204 -0.09747,-0.18347c-0.06772,-0.15641 -0.14826,-0.30694 -0.2408,-0.45007l-28.9734,-39.47973c-2.16491,-2.93175 -5.58628,-4.67006 -9.23067,-4.68987h-32.90933v-11.46667h25.8c4.74965,0 8.6,-3.85035 8.6,-8.6v-34.4c0,-4.74965 -3.85035,-8.6 -8.6,-8.6h-25.8v-2.86667c0,-4.74965 -3.85035,-8.6 -8.6,-8.6h-11.46667c-4.74965,0 -8.6,3.85035 -8.6,8.6v2.86667h-25.8c-4.74965,0 -8.6,3.85035 -8.6,8.6v34.4c0,4.74965 3.85035,8.6 8.6,8.6h25.8v11.46667h-32.90933c-3.65187,0.01686 -7.08086,1.75899 -9.24787,4.69847l-28.95333,39.47113c-0.0936,0.14149 -0.1742,0.29117 -0.2408,0.4472c-0.03153,0.06593 -0.07453,0.1204 -0.10033,0.18633c-0.12254,0.31178 -0.18949,0.64263 -0.1978,0.97753c0,0.02867 -0.0172,0.05447 -0.0172,0.086v22.93333c0,1.58322 1.28345,2.86667 2.86667,2.86667c1.58322,0 2.86667,-1.28345 2.86667,-2.86667v-5.5384c2.17891,0.35518 4.26474,1.14272 6.13467,2.31627c3.53076,2.18892 7.62006,3.30807 11.7734,3.22213c4.15334,0.08594 8.24264,-1.03322 11.7734,-3.22213c2.68127,-1.71957 5.81712,-2.59441 9.00133,-2.5112c3.18422,-0.08321 6.32006,0.79163 9.00133,2.5112c3.53076,2.18892 7.62006,3.30807 11.7734,3.22213c4.15431,0.0865 8.24468,-1.03268 11.77627,-3.22213c5.53799,-3.34814 12.47614,-3.34814 18.01413,0c7.26471,4.2978 16.29356,4.2978 23.55827,0c5.5396,-3.34607 12.4774,-3.34607 18.017,0c7.26611,4.29646 16.29503,4.29646 23.56113,0c1.87538,-1.17303 3.96578,-1.96046 6.149,-2.31627v25.60507c0,1.58322 -1.28345,2.86667 -2.86667,2.86667h-154.8c-1.58322,0 -2.86667,-1.28345 -2.86667,-2.86667v-8.6c0,-1.58322 -1.28345,-2.86667 -2.86667,-2.86667c-1.58322,0 -2.86667,1.28345 -2.86667,2.86667v8.6c0,4.74965 3.85035,8.6 8.6,8.6h154.8c4.74965,0 8.6,-3.85035 8.6,-8.6v-43c0,-0.03153 -0.0172,-0.05733 -0.0172,-0.086c-0.00831,-0.3349 -0.07526,-0.66575 -0.1978,-0.97753zM77.4,8.6c0,-1.58322 1.28345,-2.86667 2.86667,-2.86667h11.46667c1.58322,0 2.86667,1.28345 2.86667,2.86667v2.86667h-17.2zM43,54.46667v-14.33333h5.73333c1.58322,0 2.86667,-1.28345 2.86667,-2.86667c0,-1.58322 -1.28345,-2.86667 -2.86667,-2.86667h-5.73333v-5.73333h14.33333c1.58322,0 2.86667,-1.28345 2.86667,-2.86667c0,-1.58322 -1.28345,-2.86667 -2.86667,-2.86667h-14.33333v-2.86667c0,-1.58322 1.28345,-2.86667 2.86667,-2.86667h80.26667c1.58322,0 2.86667,1.28345 2.86667,2.86667v14.33333h-5.73333c-1.58322,0 -2.86667,1.28345 -2.86667,2.86667c0,1.58322 1.28345,2.86667 2.86667,2.86667h5.73333v5.73333h-14.33333c-1.58322,0 -2.86667,1.28345 -2.86667,2.86667c0,1.58322 1.28345,2.86667 2.86667,2.86667h14.33333v2.86667c0,1.58322 -1.28345,2.86667 -2.86667,2.86667h-80.26667c-1.58322,0 -2.86667,-1.28345 -2.86667,-2.86667zM94.6,63.06667v31.53333h-17.2v-31.53333zM34.11333,82.63167c1.07956,-1.48699 2.80645,-2.36643 4.644,-2.365h32.90933v14.33333h-8.6c-1.58322,0 -2.86667,1.28345 -2.86667,2.86667c0,1.58322 1.28345,2.86667 2.86667,2.86667h45.86667c1.58322,0 2.86667,-1.28345 2.86667,-2.86667c0,-1.58322 -1.28345,-2.86667 -2.86667,-2.86667h-8.6v-14.33333h32.90933c1.82994,0.00207 3.54896,0.87756 4.6268,2.3564l25.60507,34.91027h-154.94907zM157.34273,135.09167c-5.54421,3.34799 -12.48712,3.34799 -18.03133,0c-7.26416,-4.29605 -16.29124,-4.29605 -23.5554,0c-5.53799,3.34814 -12.47614,3.34814 -18.01413,0c-3.52881,-2.18885 -7.61598,-3.30897 -11.76767,-3.225c-4.15445,-0.08765 -8.24515,1.03162 -11.77627,3.22213c-2.68349,1.71938 -5.82109,2.59415 -9.00707,2.5112c-3.18422,0.08321 -6.32006,-0.79163 -9.00133,-2.5112c-3.53076,-2.18892 -7.62006,-3.30807 -11.7734,-3.22213c-4.15334,-0.08594 -8.24264,1.03322 -11.7734,3.22213c-2.68127,1.71957 -5.81712,2.59441 -9.00133,2.5112c-3.18422,0.08321 -6.32006,-0.79163 -9.00133,-2.5112c-2.70946,-1.65825 -5.74994,-2.70142 -8.90673,-3.05587v-8.76627h160.53333v8.76627c-3.15867,0.35408 -6.20109,1.39726 -8.91247,3.05587z" fill="#373737"></path>
+                        </g>
+                    </g>
+                </svg>
+                <span>Land Registry</span>
+            </div>
+            <ul class="nav-list">
+                <li id='searchButton' class="nav-list-item active">
+                    <a class="nav-list-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                <g fill="#dbdbdb">
+                                    <path d="M74.53333,17.2c-31.59642,0 -57.33333,25.73692 -57.33333,57.33333c0,31.59642 25.73692,57.33333 57.33333,57.33333c13.73998,0 26.35834,-4.87915 36.24766,-12.97839l34.23203,34.23203c1.43802,1.49778 3.5734,2.10113 5.5826,1.57735c2.0092,-0.52378 3.57826,-2.09284 4.10204,-4.10204c0.52378,-2.0092 -0.07957,-4.14458 -1.57735,-5.5826l-34.23203,-34.23203c8.09924,-9.88932 12.97839,-22.50768 12.97839,-36.24766c0,-31.59642 -25.73692,-57.33333 -57.33333,-57.33333zM74.53333,28.66667c25.39937,0 45.86667,20.4673 45.86667,45.86667c0,25.39937 -20.46729,45.86667 -45.86667,45.86667c-25.39937,0 -45.86667,-20.46729 -45.86667,-45.86667c0,-25.39937 20.4673,-45.86667 45.86667,-45.86667z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                        Search
+                    </a>
+                </li>
+                <li id='registerButton' class="nav-list-item">
+                    <a class="nav-list-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                <g fill="#dbdbdb">
+                                    <path d="M40.13333,11.50026c-6.30667,0 -11.46667,5.16 -11.46667,11.46667v31.82448c0.11467,0 0.17648,-0.06584 0.29115,-0.12318c1.08933,-5.04533 5.55238,-8.76797 10.88438,-8.76797h0.58229c5.332,0 9.79504,3.72264 10.88438,8.76797c6.99467,3.89867 11.75781,11.2987 11.75781,19.8987v63.06667v11.98177c0,3.38267 -1.032,6.70755 -2.86667,9.57422l-0.97422,1.37734h72.64089c6.30667,0 11.46667,-5.16 11.46667,-11.46667v-94.6c0,-1.548 -0.56796,-2.97551 -1.65729,-4.06484l-37.26667,-37.26667c-1.08934,-1.08933 -2.52804,-1.66849 -4.07604,-1.66849zM97.46667,22.39583l34.97109,34.97109h-29.23776c-3.15333,0 -5.73333,-2.58 -5.73333,-5.73333zM40.13333,57.36692c-2.35067,0 -4.41422,1.42975 -5.27422,3.49375v0.06719c-0.28667,0.688 -0.45911,1.42706 -0.45911,2.17239c0,0.172 -0.00134,0.34311 0.05599,0.51511c-2.46533,0.80267 -4.41422,2.75289 -5.27422,5.21823h-0.5151c-5.73333,0 -7.96665,1.20311 -10.14531,3.38177c-0.45867,0.45867 -0.86538,0.97333 -1.20938,1.48933c-1.43333,1.94933 -2.29557,4.30806 -2.29557,6.83073v1.36614c0,3.03867 0.69203,6.71696 1.26537,10.61563c0.344,2.29333 0.6889,4.58353 0.91823,6.81953c0.172,1.60533 0.29115,3.21514 0.29115,4.59114c-0.05733,1.892 1.48977,3.49375 3.38177,3.49375c1.892,0.05733 3.49241,-1.43244 3.54974,-3.38177v-0.11198c0,-4.07067 -0.69203,-8.43875 -1.26536,-12.45208c-0.63067,-4.01333 -1.19818,-7.67236 -1.19818,-9.50703v-1.43333c0,-2.752 2.17508,-4.93649 4.92708,-5.96849h1.78047v34.4h22.93333v-37.26667c0,-3.784 -2.40666,-6.99556 -5.78932,-8.08489c0.05733,-0.172 0.05599,-0.34311 0.05599,-0.51511c0,-1.43333 -0.516,-2.75289 -1.43333,-3.78489c-1.032,-1.204 -2.58,-1.94844 -4.3,-1.94844zM28.66667,120.43359v28.66667c0,2.408 0.22933,2.34798 1.43333,4.41198l4.07604,7.05468l0.27995,0.51511c0.344,0.516 0.69472,1.03066 1.15339,1.48933c0.40133,0.40133 0.91733,0.75339 1.43333,1.09739v3.7737c-0.05733,1.892 1.48977,3.50495 3.38177,3.50495c1.892,0.05733 3.49375,-1.43244 3.49375,-3.38177v-0.12317v-3.7737c0.57333,-0.344 1.032,-0.69606 1.43333,-1.09739c0.57333,-0.57333 1.03334,-1.20311 1.37734,-1.94844l0.05599,-0.05599l4.06484,-6.9987c0.45867,-0.86 0.69293,-1.31061 0.75026,-1.76927c0.11467,-0.688 0,-1.26536 0,-2.6987v-28.66667z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                        Register Land
+                    </a>
+                </li>
+                <li id='transferButton' class="nav-list-item">
+                    <a class="nav-list-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                <g fill="#dbdbdb"><path d="M51.6,22.93333c-12.1604,0 -17.2,8.45093 -17.2,18.63333c0,3.42853 1.51172,6.87552 1.51172,6.87552c-0.60773,0.38413 -1.60722,1.59037 -1.35495,3.72891c0.47013,3.98467 2.06463,4.98666 3.07943,5.07266c0.38987,3.7152 4.0738,8.47736 5.3638,9.17109v6.21485c-2.86667,9.31667 -25.8,3.09618 -25.8,24.83698h68.8c0,-21.7408 -22.93333,-15.52577 -25.8,-24.84817v-6.21485c1.29,-0.69373 4.97394,-5.44469 5.3638,-9.15989c1.0148,-0.086 2.60929,-1.09919 3.07942,-5.08385c0.25227,-2.13853 -0.74721,-3.33931 -1.35495,-3.71771c0,0 1.51172,-3.11445 1.51172,-6.87552c0,-7.54507 -2.7348,-13.975 -8.6,-13.975c0,0 -2.03533,-4.65833 -8.6,-4.65833zM86,97.46667h68.8c0,-21.7408 -22.93333,-15.52577 -25.8,-24.84817v-6.21485c1.29,-0.69373 4.97394,-5.44469 5.3638,-9.15989c1.0148,-0.086 2.60929,-1.09919 3.07942,-5.08385c0.25227,-2.13853 -0.74721,-3.33931 -1.35495,-3.71771c0,0 1.51172,-3.11445 1.51172,-6.87552c0,-7.54507 -2.7348,-13.975 -8.6,-13.975c0,0 -2.03533,-4.65833 -8.6,-4.65833c-12.1604,0 -17.2,8.4564 -17.2,18.64453c0,3.4228 1.51172,6.86432 1.51172,6.86432c-0.60773,0.3784 -1.60721,1.59037 -1.35495,3.72891c0.47013,3.98467 2.06462,4.98666 3.07942,5.07266c0.38987,3.7152 4.0738,8.47736 5.3638,9.17109v6.21485c-2.86667,9.31667 -25.8,3.09618 -25.8,24.83698zM34.4,108.93333l-22.93333,22.93333l22.93333,22.93333v-17.2h28.66667c2.06765,0.02924 3.99087,-1.05709 5.03322,-2.843c1.04236,-1.78592 1.04236,-3.99474 0,-5.78066c-1.04236,-1.78592 -2.96558,-2.87225 -5.03322,-2.843h-28.66667zM137.6,108.93333v17.2h-28.66667c-2.06765,-0.02924 -3.99087,1.05709 -5.03322,2.843c-1.04236,1.78592 -1.04236,3.99474 0,5.78066c1.04236,1.78592 2.96558,2.87225 5.03322,2.843h28.66667v17.2l22.93333,-22.93333zM85.86562,126.13333c-3.16643,0 -5.73333,2.5669 -5.73333,5.73333c0,3.16643 2.5669,5.73333 5.73333,5.73333c3.16643,0 5.73333,-2.5669 5.73333,-5.73333c0,-3.16643 -2.5669,-5.73333 -5.73333,-5.73333z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                        Transfer Ownership
+                    </a>
+                </li>
+                <li id='teamButton' class="nav-list-item">
+                    <a class="nav-list-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 172 172" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <g fill="#dbdbdb" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M54.13073,17.2c-31.2524,0.53893 -34.44622,22.21004 -28.17396,47.09844c-1.21547,0.69947 -3.21443,2.91979 -2.7099,6.86432c0.94027,7.35587 4.12925,9.21786 6.15885,9.37266c0.774,6.86853 8.1476,15.65272 10.7276,16.93125v11.46667c-5.73333,17.2 -40.13333,0 -40.13333,45.86667h68.8c0,-20.34187 11.40611,-29.10285 20.91771,-34.14245c-8.93253,-3.1304 -18.18291,-3.51982 -20.91771,-11.72422v-11.46667c2.58,-1.27853 9.94787,-10.05725 10.72761,-16.92005c0.45867,-1.62253 0.81745,-7.42717 0.81745,-8.73437c0,-7.16093 -0.10508,-21.96189 4.37839,-33.54896c-1.5652,-7.78587 -5.65665,-14.35224 -14.42292,-15.21797c-2.34493,-3.88147 -8.35526,-5.84531 -16.16979,-5.84531zM126.8388,22.93333c-6.44427,0 -11.42188,5.73333 -11.42188,5.73333c-36.93413,0 -16.43066,62.79917 -27.27812,71.82344c0,0 5.76746,8.54401 26.52786,8.54401v7.31224c-5.73333,15.52013 -34.4,9.78698 -34.4,38.45364h91.73333c0,-28.66667 -28.66667,-22.93351 -34.4,-38.45364v-7.37943c20.8636,0 25.69922,-8.26406 25.69922,-8.26406c-11.6788,-9.58613 8.69532,-77.76953 -36.46042,-77.76953z"></path>
+                            </g>
+                        </svg>
+                        Team
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="app-main" id='searchAppMain'>
+            <div class="main-header-line">
+                <h1>Search lands</h1>
+                <div class="action-buttons">
+                    <button class="menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="main-content-container">
+                <div class="main-content-wrapper">
+                    <div class="main-content">
+                        <form id='searchLandForm'>
+                            <div class="form-group">
+                                <label class="control-label">Contract Address:</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <input id="contractAddress1" placeholder="Search land by contract address" class="form-control" type="text" required>
+                                        <span style='cursor:pointer;' title='Search' onclick='searchLand();' class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <h4 style='color:#eee;text-align:left;width:100%;'>Land Information:</h4>
+                        <div style='width:100%;display:flex;justify-content:center;'>
+                            <table id='searchResultsTable'>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">Survey No.:</td>
+                                    <td style="text-align:center;" id='surveyNo'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">Street:</td>
+                                    <td style="text-align:center;" id='street'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">Area:</td>
+                                    <td style="text-align:center;" id='area'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">City/Town:</td>
+                                    <td style="text-align:center;" id='cityTown'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">State:</td>
+                                    <td style="text-align:center;" id='state'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">Pin code:</td>
+                                    <td style="text-align:center;" id='pin'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">Country:</td>
+                                    <td style="text-align:center;" id='country'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">Current Owner:</td>
+                                    <td style="text-align:center;" id='currentOwner'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">Previous Owner:</td>
+                                    <td style="text-align:center;" id='previousOwner'>-</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;color: #dad8d8;font-size: small;font-weight: bold;">Region:</td>
+                                    <td style="display: flex;justify-content: center;" id='region'><div id='map-canvas'></div></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="alert alert-danger" id='searchDanger' style='display:none;' role="alert"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app-main" id='registerAppMain' style='display:none;'>
+            <div class="main-header-line">
+                <h1>Register a land</h1>
+                <div class="action-buttons">
+                    <button class="menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="main-content-container">
+                <div class="main-content-wrapper">
+                    <div class="main-content">
+                        <form id='addLandForm' action="?" target="DummyFrame">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Survey No.:</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                        <input id="surveyNoRegister" placeholder="Survey/House/Plot No." class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Street:</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+                                        <input id="streetRegister" placeholder="Street/Road/Colony" class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Area:</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                        <input id="areaRegister" placeholder="Area" class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">City/Town:</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                        <input id="cityTownRegister" placeholder="City/Town" class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">State:</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                        <input id="stateRegister" placeholder="State" class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">PIN:</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                        <input id="pinRegister" placeholder="XXXXXX" pattern='[0-9]{6}' class="form-control" type="text" maxlength='6' required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Country:</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                        <select id="countryRegister" class="form-control selectpicker" title='Available only in India as of now' readonly required>
+                                            <option value="India" selected>India</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Region:</label>
+                                <textarea id='regionRegister' class='autoExpand region' rows='3' data-min-rows='3' placeholder='Mention the ordered pair of latitude and longitudes of vertices of the land separated by semi-colons (Lat1,Long1);(Lat2,Long2);(Lat3,Long3)' autofocus required></textarea>
+                            </div>
+                            <div style="display:100%;">
+                                <button type="submit" id="addLandButton">Register</button>
+                            </div>
+                        </form>
+                        <div class="alert alert-success" id='registerSuccess' style='display:none;margin-top:10px;' role="alert"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app-main" id='transferAppMain' style='display:none;'>
+            <div class="main-header-line">
+                <h1>Transfer Ownership</h1>
+                <div class="action-buttons">
+                    <button class="menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="main-content">
+                <form id='transferForm'>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Enter Contract Address:</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                                <input id="contractAddress2" placeholder="Search land by contract address" class="form-control" type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <label class="col-md-4 control-label">Enter new owner address:</label>
+                        <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="newOwnerAddress" placeholder="New Owner Address" class="form-control" type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" style='width: fit-content;align-self: center;margin-top: 20px;' class="btn btn-primary" id="transferLandButton" onclick="transferLand();">Transfer</button>
+                </form>
+                <div class="alert alert-success" id='transferSuccess' style='display:none;' role="alert"></div>
+                <div class="alert alert-danger" id='transferDanger' style='display:none;' role="alert"></div>
+            </div>
+        </div>
+        <div class="app-main" id='teamAppMain' style='display:none;'>
+            <div class="main-header-line">
+                <h1>Our Team</h1>
+                <div class="action-buttons">
+                    <button class="menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+            <section class='admins'>
+                <div class='box'>
+                    <div class='admin' style='border-radius:0.25rem;padding:1rem;display:flex;align-items:center;'>
+                        <div>
+                            <img width='75' height='75' src='assets/KrishnaPaanchajanya.jpg'/>
+                        </div>
+                        <div style='margin-left:1rem;'>
+                            <h3>K V Krishna Paanchajanya</h3>
+                            <p>Regn. No. 19BCS063</p>
+                        </div>
+                    </div>
+                    <div class='admin' style='border-radius:0.25rem;padding:1rem;display:flex;align-items:center;'>
+                        <div>
+                            <img width='75' height='75' src='assets/KarthikSajjan.jpg'/>
+                        </div>
+                        <div style='margin-left:1rem;'>
+                            <h3>Karthik Sajjan</h3>
+                            <p>Regn. No. 19BCS049</p>
+                        </div>
+                    </div>
+                    <div class='admin' style='border-radius:0.25rem;padding:1rem;display:flex;align-items:center;'>
+                        <div>
+                            <img width='75' height='75' src='assets/DeepakChowdary.jpg'/>
+                        </div>
+                        <div style='margin-left:1rem;'>
+                            <h3>Karusala Deepak Chowdary</h3>
+                            <p>Regn. No. 19BCS050</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <iframe name="DummyFrame" style="display:none;"></iframe>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'></script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAky5fqKd5-PO4f0Qc3516DfJIJaktRtIw&callback=initialize&v=weekly' async></script>
+    <script src='web3.min.js'></script>
+    <script type='text/javascript' src='home.js'></script>
+</body>
+</html>
