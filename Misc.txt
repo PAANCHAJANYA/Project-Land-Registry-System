@@ -1,0 +1,25 @@
+User login functionality
+Capturing pictures of the seller and buyer while transferring the ownership
+Gas fee based on land location
+Making regions one-time registerable
+Multiple owner registration
+Partial Selling of Lands
+Off chain data to be on blocks
+------------------------------
+Web App Full Stack Development of Contractor
+Web App Full Stack Development of Land Inspector
+Web App Just UI of User
+--------------------------------------
+Education Ecosystem Google
+Udemy 8341616631
+------------------------------
+Tenali: (16.231141, 80.650760);(16.231158, 80.650858);(16.231025157305034, 80.65078461806326);(16.231141, 80.650760)
+0xBeBeCb9335BeB031E55D3144f48327Cc7e34dC9a
+
+IITT DWD College: (15.394397804529174,75.02250190885132);(15.394189189674105,75.02680669435145);(15.389918029040452,75.02676114106573);(15.389347070334923,75.02283217017276);(15.394397804529174,75.02250190885132)
+
+Raichur: (16.188085278873867, 77.36670536508089);(16.188083045614462, 77.3668065225926);(16.187961332938254, 77.36682628900293);(16.1879512832644, 77.36672745695127);(16.188085278873867, 77.36670536508089)
+
+Test: (25.51926473751924, 123.76365922171135);(23.520296440180882, 117.61131542912939);(20.999005609117926, 120.42381544859545);(25.51926473751924, 123.76365922171135)
+
+0xb5A98C5ED590722cF7036Ae805676EB169Edf67F

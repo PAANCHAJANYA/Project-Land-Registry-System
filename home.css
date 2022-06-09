@@ -263,6 +263,21 @@ button
 {
   background-color:#253b9e;
 }
+#addOwnerButton
+{
+  background-color: #2c3c78;
+  border-radius: 6px;
+  border: 2px solid #1b415e;
+  color: white;
+  padding: 3px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+#addOwnerButton:hover
+{
+  background-color:#253b9e;
+}
 .region
 {
   padding: 10px;
